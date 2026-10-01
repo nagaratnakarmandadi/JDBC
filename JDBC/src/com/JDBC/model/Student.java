@@ -1,0 +1,39 @@
+package com.JDBC.model;
+
+public class Student {
+	private int sno;
+	private String sname;
+	private int smarks;
+
+	public int getSno() {
+		return sno;
+	}
+
+	public void setSno(int sno) {
+		this.sno = sno;
+	}
+
+	public String getSname() {
+		return sname;
+	}
+
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
+
+	public int getSmarks() {
+		return smarks;
+	}
+
+	public void setSmarks(int smarks) {
+		this.smarks = smarks;
+	}
+
+	public Student(int s, String sn, int m) {
+		this.sno = s;
+		this.sname = sn;
+		this.smarks = m;
+
+	}
+
+}

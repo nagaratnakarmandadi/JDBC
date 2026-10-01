@@ -1,13 +1,15 @@
-package com.JDBC;
+package com.JDBC.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.JDBC.utility.DBConnection;
+
 public class JDBCExample implements JDBCExampleInterface {
 
 	@Override
-	public void insert() {
+	public void insert(String name, int marks) {
 
 		try {
 			DBConnection db = new DBConnection();
@@ -15,8 +17,8 @@ public class JDBCExample implements JDBCExampleInterface {
 
 			PreparedStatement ps = con.prepareStatement("insert into student(sname, smarks) values(?, ?)");
 
-			ps.setString(1, "chandu");
-			ps.setInt(2, 69);
+			ps.setString(1, name);
+			ps.setInt(2, marks);
 
 			int n = ps.executeUpdate();
 
