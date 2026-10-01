@@ -2,24 +2,24 @@ package com.JDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.PreparedStatement;
 
 public class JDBCExample {
 
 	public static void main(String[] args) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc","root","root");
-			Statement st= con.createStatement();
-			int n =st.executeUpdate("insert into student (sname,smarks) values ('teja',90)");
-			if (n>0) {
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "root");
+			PreparedStatement ps = con.prepareStatement("insert into student(sname,smarks) values(?,?)");
+			ps.setString(1, "kiran");
+			ps.setInt(2, 79);
+			int n = ps.executeUpdate();
+			if (n > 0) {
 				System.out.println(n + " row affected  ");
-			}
-			else {
+			} else {
 				System.out.println("some thing went wrong");
 			}
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
