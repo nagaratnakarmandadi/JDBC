@@ -11,8 +11,8 @@ public class JDBCExample {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc", "root", "root");
 			PreparedStatement ps = con.prepareStatement("insert into student(sname,smarks) values(?,?)");
-			ps.setString(1, "kiran");
-			ps.setInt(2, 79);
+			ps.setString(1, "chandu");
+			ps.setInt(2, 69);
 			int n = ps.executeUpdate();
 			if (n > 0) {
 				System.out.println(n + " row affected  ");
