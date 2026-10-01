@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.JDBC.model.Student;
 import com.JDBC.utility.DBConnection;
 
 public class JDBCExample implements JDBCExampleInterface {
 
 	@Override
-	public void insert(String name, int marks) {
+	public void insert(Student s) {
 
 		try {
 			DBConnection db = new DBConnection();
@@ -17,8 +18,8 @@ public class JDBCExample implements JDBCExampleInterface {
 
 			PreparedStatement ps = con.prepareStatement("insert into student(sname, smarks) values(?, ?)");
 
-			ps.setString(1, name);
-			ps.setInt(2, marks);
+			ps.setString(1, s.getSname());
+			ps.setInt(2, s.getSmarks());
 
 			int n = ps.executeUpdate();
 

@@ -1,8 +1,9 @@
 package com.JDBC.dao;
 
-public interface JDBCExampleInterface {
+import com.JDBC.model.Student;
 
-	public void insert(String name, int marks);
+public interface JDBCExampleInterface {
+	void insert(Student s);
 
 	void select();
 }
